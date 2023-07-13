@@ -5,7 +5,7 @@
         <title>Blog</title>
     </head>
     <body>
-        <h1>チーム開発会へようこそ！</h1>
+        <h1>筋トレ管理アプリ</h1>
         <h2>投稿作成</h2>
         <form action="/posts" method="POST">
             @csrf
