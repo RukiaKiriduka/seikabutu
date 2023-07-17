@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
+    <x-app-layout>
+    <x-slot name="header">
         <meta charset="utf-8">
         <title>Blog</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
+    </x-slot>
         <h1>筋トレ管理アプリ</h1>
         <h2>投稿一覧画面</h2>
         <a href='/posts/create'>新規投稿</a>
@@ -16,12 +16,11 @@
                     <p>
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </p>
-                    <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
                 </div>
             @endforeach
         </div>
         <div>
             {{ $posts->links() }}
         </div>
-    </body>
+    </x-app-layout>
 </html>
