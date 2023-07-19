@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->foreignId('time_id')->constrained();  
+            $table->foreignId('time_id')->constrained(); 
+            $table->foreignId('part_id')->constrained(); 
+            
         });
     }
 

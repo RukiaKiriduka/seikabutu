@@ -17,8 +17,17 @@
                 <input type="date" id="post_date" name="post[date]" required  style="border-radius: 5px;padding: 10px;border: 1px solid #ccc;">
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
+            <div>
                 <h2 style="font-size:15px;font-weight: bold;margin-top:10px;">鍛えた部位</h2>
-                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"  style="border-radius: 5px;padding: 10px;border: 1px solid #ccc;width"/>
+                <select name="post[title]"  style=" margin-top:10px;border-radius: 5px;padding: 10px;border: 1px solid #ccc; width:45%;">
+                <option value="">鍛えた部位を教えてください</option>
+                <option>胸</option>
+                <option>腕</option>
+                <option>足</option>
+                <option>背中</option>
+                <option>肩</option>
+                </select>
+            </div>
                 <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
             <div>
