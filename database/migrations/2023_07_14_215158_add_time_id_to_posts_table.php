@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->foreignId('time_id')->constrained(); 
-            $table->foreignId('part_id')->constrained(); 
             
         });
     }

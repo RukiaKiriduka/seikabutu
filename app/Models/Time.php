@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Time extends Model
 {
     use HasFactory;
+    
+    public $timestamps = false;
+    
+    protected $fillable = [
+        'time',
+    ];
+    
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Time;
 
 class PostController extends Controller
 {
@@ -18,9 +19,12 @@ class PostController extends Controller
     }
     
     
-    public function create(){
-        return view('posts/create');
-    }
+    public function create(Time $time)
+{
+    return view('posts.create')->with(['times' => $time->get()]);
+}
+    
+    
 
    // public function create(Category $category)
     //{

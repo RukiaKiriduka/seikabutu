@@ -17,6 +17,14 @@
                 <input type="date" id="post_date" name="post[date]" required  style="border-radius: 5px;padding: 10px;border: 1px solid #ccc;">
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
+            <div class="time">
+            <h2 style="font-size:15px;font-weight: bold;margin-top:10px;">トレーニング時間(分)</h2>
+                <select name="post[time_id]" style=" margin-top:10px;border-radius: 5px;padding: 10px;border: 1px solid #ccc; width:29%;">
+                @foreach($times as $time)
+                <option value="{{ $time->id }}">{{ $time->time }}</option>
+                @endforeach
+                </select>
+            </div>
             <div>
                 <h2 style="font-size:15px;font-weight: bold;margin-top:10px;">鍛えた部位</h2>
                 <select name="post[title]"  style=" margin-top:10px;border-radius: 5px;padding: 10px;border: 1px solid #ccc; width:45%;">
@@ -37,6 +45,7 @@
             </div>
             <input type="submit" value="保存" style="margin-top:10px;display: inline-block;color: #fff;font-weight: bold;background-color: #333;text-align: center;padding: 8px 15px;text-decoration: none;border-radius: 5px;cursor: pointer;box-shadow: 0 0 0 #bbb;background-color: 333;transition: .3s;"/>
         </form>
+        <x-primary-button>boan</x-primary-button>
         <div><a href="/">戻る</a></div>
     </x-app-layout>
 </html>
