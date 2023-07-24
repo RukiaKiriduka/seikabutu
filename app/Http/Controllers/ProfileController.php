@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Post;
 
 class ProfileController extends Controller
 {
@@ -57,4 +58,21 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    
+     public function index(Request $request)
+    {
+        $user = $request->user();
+        $posts = Post::where('user_id', $user->id)->get();
+        return view('profile')->with(['posts' => $posts, 'user' => $user]);
+    }
+    
+    public function introduction(Request $request)
+    {
+        $user = Auth::user();
+        $input_introduction = $request['user_introduction'];
+        $user->content = $input_introduction;
+        $user->save();
+        return redirect()->back();
+    }
+
 }
