@@ -40,12 +40,87 @@
             </div>
             <div>
                 <h2 style="font-size:15px;font-weight: bold;margin-top:10px;">コメント</h2>
-                <textarea name="post[body]" placeholder="トレーニング内容について教えてください" style="border-radius: 5px;padding: 10px;border: 1px solid #ccc;min-width: 500px;min-height: 100px;">{{ old('post.body') }}</textarea>
+            <div name="post[body]">
+            <table>
+            <tr class="header">
+              <th class="item1">種目 </th>
+              <th class="item2">1セット目</th>
+              <th class="item2">2セット目</th>
+              <th class="item2">3セット目</th>
+              <th class="item2">4セット目</th>
+              <th class="item2">5セット目</th>
+            </tr>
+            <tr>
+              <td class="item1"  id="A1" contenteditable=true></td>
+              <td class="value1" id="B1" contenteditable=true></td>
+              <td class="value1" id="B2" contenteditable=true></td>
+              <td class="value1" id="B3" contenteditable=true></td>
+              <td class="value1" id="B4" contenteditable=true></td>
+              <td class="value1" id="B5" contenteditable=true></td>
+            </tr>
+            <tr>
+              <td class="item1"  id="B1" contenteditable=true></td>
+              <td class="value1" id="C1" contenteditable=true></td>
+              <td class="value1" id="C2" contenteditable=true></td>
+              <td class="value1" id="C3" contenteditable=true></td>
+              <td class="value1" id="C4" contenteditable=true></td>
+              <td class="value1" id="C5" contenteditable=true></td>
+            </tr>
+            <tr>
+              <td class="item1"  id="C1" contenteditable=true></td>
+              <td class="value1" id="D1" contenteditable=true></td>
+              <td class="value1" id="D2" contenteditable=true></td>
+              <td class="value1" id="D3" contenteditable=true></td>
+              <td class="value1" id="D4" contenteditable=true></td>
+              <td class="value1" id="D5" contenteditable=true></td>
+            </tr>
+            <tr>
+              <td class="item1"  id="D1" contenteditable=true></td>
+              <td class="value1" id="E1" contenteditable=true></td>
+              <td class="value1" id="E2" contenteditable=true></td>
+              <td class="value1" id="E3" contenteditable=true></td>
+              <td class="value1" id="E4" contenteditable=true></td>
+              <td class="value1" id="E5" contenteditable=true></td>
+            </tr>
+            <tr>
+              <td class="item1"  id="E1" contenteditable=true></td>
+              <td class="value1" id="F1" contenteditable=true></td>
+              <td class="value1" id="F2" contenteditable=true></td>
+              <td class="value1" id="F3" contenteditable=true></td>
+              <td class="value1" id="F4" contenteditable=true></td>
+              <td class="value1" id="F5" contenteditable=true></td>
+            </tr>
+            </table>
+            </div>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <input type="submit" value="保存" style="margin-top:10px;display: inline-block;color: #fff;font-weight: bold;background-color: #333;text-align: center;padding: 8px 15px;text-decoration: none;border-radius: 5px;cursor: pointer;box-shadow: 0 0 0 #bbb;background-color: 333;transition: .3s;"/>
         </form>
-        <x-primary-button>boan</x-primary-button>
-        <div><a href="/">戻る</a></div>
+        
+        
+        
+        <style>
+            table {
+  border-collapse: collapse;
+}
+.item1 {
+  border: 1px solid grey;
+  padding: 3px 10px;
+  background: #ddd;
+  text-align: center;
+  width: 160px;
+}
+.item2 {
+  border: 1px solid grey;
+  padding: 3px 10px;
+  background: #ddd;
+  width: 100px;
+}
+.value1 {
+  border: 1px solid grey;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+        </style>
     </x-app-layout>
 </html>

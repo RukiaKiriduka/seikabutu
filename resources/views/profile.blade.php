@@ -51,24 +51,6 @@
                     <textarea name="user_introduction" rows="4" cols="50" style="border-radius: 5px;padding: 10px;border: 1px solid #ccc;">{{ old('user_introduction', $user->content) }}</textarea>
                     <input type="submit" value="保存" style="margin-top:10px;display: inline-block;color: #fff;font-weight: bold;background-color: #333;text-align: center;padding: 8px 15px;text-decoration: none;border-radius: 5px;">
                 </form>
-                
-                @foreach ($posts as $post)
-                    <a href="/posts/{{ $post->id }}" class="post-link">
-                        <div class="post" style="border: 5px double #aaa;padding: 2em;margin-top:20px">
-                            <h2 style="font-size:15px;font-weight: bold;">[日付]：<span class="post-detail">{{ $post->date->date }}</span></h2>
-                            <h2 style="font-size:15px;font-weight: bold;">[トレーニング時間]：<span class="post-detail">{{ $post->tome->time }}</span></h2>
-                            <h2 style="font-size:15px;font-weight: bold;">[鍛えた部位]：<span class="post-detail">{{ $post->title }}</span></h2>
-                            <h2 style="font-size:15px;font-weight: bold;">[コメント]</h2>
-                            <p class="post-detail" style="font-size:15px;">{{ $post->body }}</p>
-                            
-                            <form action="/posts/{{ $post->id }}" method="POST" class="delete-form">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" value="削除" style="margin-top:10px;display: inline-block;color: #fff;font-weight: bold;background-color: #333;text-align: center;padding: 8px 15px;text-decoration: none;border-radius: 5px;">
-                            </form>
-                        </div>
-                    </a>
-                @endforeach
             </div>
             <div id='calendar'></div>
         </div>

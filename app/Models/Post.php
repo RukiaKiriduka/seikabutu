@@ -26,6 +26,11 @@ class Post extends Model
     
     public function time()
 {
-    return $this->belongsTo(time::class);
+    return $this->belongsTo(Time::class);
 }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
