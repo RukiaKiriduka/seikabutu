@@ -37,14 +37,15 @@
         <div class="flex-container">
             <div class="content-box">
                 <h2 style="margin:50px 0 10px;font-size:30px;font-weight: bold;">プロフィール</h2>
-                <span class="avatar-form image-picker">
-                    <input type="file" name="avatar" class="d-none" accept="image/png,image/jpeg,image/gif" id="avatar" />
+                
+                <h2 style="margin:30px 0 10px;font-size:20px;font-weight: bold;">ユーザーネーム：{{ $user->name }}</h2>
+                <form action="/myPosts" method="POST" style="margin:30px 0 10px">
+                    <span class="avatar-form image-picker">
+                    <input name="image" type="file" name="avatar" class="d-none" accept="image/png,image/jpeg,image/gif" id="avatar" />
                     <label for="avatar" class="d-inline-block">
                         <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
                     </label>
-                </span>
-                <h2 style="margin:30px 0 10px;font-size:20px;font-weight: bold;">ユーザーネーム：{{ $user->name }}</h2>
-                <form action="/myPosts" method="POST" style="margin:30px 0 10px">
+                    </span>
                     @csrf
                     @method('PUT')
                     <h2 style="font-size:15px;font-weight: bold;">自己紹介</h2>

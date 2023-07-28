@@ -25,6 +25,7 @@ class User extends Authenticatable
     
     protected $attributes = [
         'content' => null,
+        'image' => null
     ];
 
     /**

@@ -74,5 +74,12 @@ class ProfileController extends Controller
         $user->save();
         return redirect()->back();
     }
+    
+    public function postByDate($date)
+    {
+        $posts = Post::whereDate('date', $date)->get();
+
+        return view('posts.showMyPost', ['posts' => $posts]);
+    }
 
 }

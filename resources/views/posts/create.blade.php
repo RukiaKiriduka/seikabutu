@@ -27,7 +27,7 @@
             </div>
             <div>
                 <h2 style="font-size:15px;font-weight: bold;margin-top:10px;">鍛えた部位</h2>
-                <select name="post[title]"  style=" margin-top:10px;border-radius: 5px;padding: 10px;border: 1px solid #ccc; width:45%;">
+                <select name="post[title]"  style=" margin-top:10px;border-radius: 5px;padding: 10px;border: 1px solid #ccc; width:29%;">
                 <option value="">鍛えた部位を教えてください</option>
                 <option>胸</option>
                 <option>腕</option>
@@ -39,8 +39,9 @@
                 <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
             <div>
-                <h2 style="font-size:15px;font-weight: bold;margin-top:10px;">コメント</h2>
-            <div name="post[body]">
+            <div style="font-size:15px;font-weight: bold;margin-top:10px;">
+              トレーニング内容
+            </div>
             <table>
             <tr class="header">
               <th class="item1">種目 </th>
@@ -51,48 +52,46 @@
               <th class="item2">5セット目</th>
             </tr>
             <tr>
-              <td class="item1"  id="A1" contenteditable=true></td>
-              <td class="value1" id="B1" contenteditable=true></td>
-              <td class="value1" id="B2" contenteditable=true></td>
-              <td class="value1" id="B3" contenteditable=true></td>
-              <td class="value1" id="B4" contenteditable=true></td>
-              <td class="value1" id="B5" contenteditable=true></td>
+              <td class="item1"  id="A1" ><input type="textarea" name="post[A1]"></td>
+              <td class="value1" id="B1" ><input type="textarea" name="post[A2]"></td>
+              <td class="value1" id="B2" ><input type="textarea" name="post[A3]"></td>
+              <td class="value1" id="B3" ><input type="textarea" name="post[A4]"></td>
+              <td class="value1" id="B4" ><input type="textarea" name="post[A5]"></td>
+              <td class="value1" id="B5" ><input type="textarea" name="post[A6]"></td>
             </tr>
             <tr>
-              <td class="item1"  id="B1" contenteditable=true></td>
-              <td class="value1" id="C1" contenteditable=true></td>
-              <td class="value1" id="C2" contenteditable=true></td>
-              <td class="value1" id="C3" contenteditable=true></td>
-              <td class="value1" id="C4" contenteditable=true></td>
-              <td class="value1" id="C5" contenteditable=true></td>
+              <td class="item1"  id="B1" ><input type="textarea" name="post[B1]"></td>
+              <td class="value1" id="C1" ><input type="textarea" name="post[B2]"></td>
+              <td class="value1" id="C2" ><input type="textarea" name="post[B3]"></td>
+              <td class="value1" id="C3" ><input type="textarea" name="post[B4]"></td>
+              <td class="value1" id="C4" ><input type="textarea" name="post[B5]"></td>
+              <td class="value1" id="C5" ><input type="textarea" name="post[B6]"></td>
             </tr>
             <tr>
-              <td class="item1"  id="C1" contenteditable=true></td>
-              <td class="value1" id="D1" contenteditable=true></td>
-              <td class="value1" id="D2" contenteditable=true></td>
-              <td class="value1" id="D3" contenteditable=true></td>
-              <td class="value1" id="D4" contenteditable=true></td>
-              <td class="value1" id="D5" contenteditable=true></td>
+              <td class="item1"  id="C1" ><input type="textarea" name="post[C1]"></td>
+              <td class="value1" id="D1" ><input type="textarea" name="post[C2]"></td>
+              <td class="value1" id="D2" ><input type="textarea" name="post[C3]"></td>
+              <td class="value1" id="D3" ><input type="textarea" name="post[C4]"></td>
+              <td class="value1" id="D4" ><input type="textarea" name="post[C5]"></td>
+              <td class="value1" id="D5" ><input type="textarea" name="post[C6]"></td>
             </tr>
             <tr>
-              <td class="item1"  id="D1" contenteditable=true></td>
-              <td class="value1" id="E1" contenteditable=true></td>
-              <td class="value1" id="E2" contenteditable=true></td>
-              <td class="value1" id="E3" contenteditable=true></td>
-              <td class="value1" id="E4" contenteditable=true></td>
-              <td class="value1" id="E5" contenteditable=true></td>
+              <td class="item1"  id="D1" ><input type="textarea" name="post[D1]"></td>
+              <td class="value1" id="E1" ><input type="textarea" name="post[D2]"></td>
+              <td class="value1" id="E2" ><input type="textarea" name="post[D3]"></td>
+              <td class="value1" id="E3" ><input type="textarea" name="post[D4]"></td>
+              <td class="value1" id="E4" ><input type="textarea" name="post[D5]"></td>
+              <td class="value1" id="E5" ><input type="textarea" name="post[D6]"></td>
             </tr>
             <tr>
-              <td class="item1"  id="E1" contenteditable=true></td>
-              <td class="value1" id="F1" contenteditable=true></td>
-              <td class="value1" id="F2" contenteditable=true></td>
-              <td class="value1" id="F3" contenteditable=true></td>
-              <td class="value1" id="F4" contenteditable=true></td>
-              <td class="value1" id="F5" contenteditable=true></td>
+              <td class="item1"  id="E1" ><input type="textarea" name="post[E1]"></td>
+              <td class="value1" id="F1" ><input type="textarea" name="post[E2]"></td>
+              <td class="value1" id="F2" ><input type="textarea" name="post[E3]"></td>
+              <td class="value1" id="F3" ><input type="textarea" name="post[E4]"></td>
+              <td class="value1" id="F4" ><input type="textarea" name="post[E5]"></td>
+              <td class="value1" id="F5" ><input type="textarea" name="post[E6]"></td>
             </tr>
             </table>
-            </div>
-                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <input type="submit" value="保存" style="margin-top:10px;display: inline-block;color: #fff;font-weight: bold;background-color: #333;text-align: center;padding: 8px 15px;text-decoration: none;border-radius: 5px;cursor: pointer;box-shadow: 0 0 0 #bbb;background-color: 333;transition: .3s;"/>
         </form>
@@ -102,18 +101,17 @@
         <style>
             table {
   border-collapse: collapse;
+  margin-top:10px;
 }
 .item1 {
   border: 1px solid grey;
   padding: 3px 10px;
-  background: #ddd;
   text-align: center;
   width: 160px;
 }
 .item2 {
   border: 1px solid grey;
   padding: 3px 10px;
-  background: #ddd;
   width: 100px;
 }
 .value1 {
