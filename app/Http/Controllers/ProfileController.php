@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Post;
+use Cloudinary;
 
 class ProfileController extends Controller
 {
@@ -66,6 +67,12 @@ class ProfileController extends Controller
         return view('profile')->with(['posts' => $posts, 'user' => $user]);
     }
     
+    public function store(Request $request){
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $image_url->save();
+        return redirect()->back();
+    }
+    
     public function introduction(Request $request)
     {
         $user = Auth::user();
@@ -74,6 +81,8 @@ class ProfileController extends Controller
         $user->save();
         return redirect()->back();
     }
+
+
     
     public function postByDate($date)
     {

@@ -48,4 +48,19 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+    
+     private function saveProfileImage($image, $id) {
+        // get instance
+        $img = \Image::make($image);
+        // resize
+        $img->fit(100, 100, function($constraint){
+            $constraint->upsize(); 
+        });
+        // save
+        $file_name = 'profile_'.$id.'.'.$image->getClientOriginalExtension();
+        $save_path = 'public/profiles/'.$file_name;
+        Storage::put($save_path, (string) $img->encode());
+        // return file name
+        return $file_name;
+    }
 }

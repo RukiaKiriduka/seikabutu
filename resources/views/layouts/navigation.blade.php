@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('myPost.index')" :active="request()->routeIs('myPost.index')">
                         {{ __('プロフィール') }}
                     </x-nav-link>
+                     <x-nav-link :href="route('todos.index')" :active="request()->routeIs('todo.index')">
+                        {{ __('To Do リスト') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
                         {{ __('投稿一覧') }}
                     </x-nav-link>

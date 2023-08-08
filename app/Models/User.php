@@ -21,11 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image_url', 
     ];
     
     protected $attributes = [
         'content' => null,
-        'image' => null
+
     ];
 
     /**

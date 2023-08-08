@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,6 +20,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/myPosts', [ProfileController::class, 'index'])->name('myPost.index')->middleware("auth");
+Route::put('/myPosts', [ProfileController::class, 'store'])->name('profile.store');
 Route::put('/myPosts', [ProfileController::class, 'introduction'])->name('profile.introduction');
 Route::get('/myPosts/{date}', [ProfileController::class, 'postByDate'])->name('profile.postByDate');
 
@@ -32,4 +34,13 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts/{post}/edit', 'edit')->name('post.edit');
 });
 
+
+Route::controller(TodoController::class)->middleware(['auth'])->group(function(){
+    Route::get('/todos', 'index')->name('todos.index');
+    Route::post('/todos', 'store')->name('todos.store');
+    Route::put('/todos/{todo}', 'update')->name('todos.update');
+    Route::delete('/todos/{todo}', 'destroy')->name('todos.destroy');
+    Route::get('/todos/{todo}/edit', 'edit')->name('todos.edit');
+
+});
 require __DIR__.'/auth.php';

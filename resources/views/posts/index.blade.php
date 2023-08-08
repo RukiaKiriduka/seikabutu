@@ -6,12 +6,13 @@
         <title>Blog</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="/css/layout.css" rel="stylesheet">
     </x-slot>
-        <h1></h1>
-        <h2 style="margin:50px 150px 10px;font-size:30px;font-weight: bold;">投稿一覧画面</h2>
+    <div class="background_img">
+        <h2 class="title_font" style="margin:0px 150px 10px;font-size:30px;font-weight: bold;color:white;">投稿一覧画面</h2>
        <div class="container">
         @foreach($posts as $post)
-            <div class="postcontent" style="display: inline-block;border: 5px double #aaa;padding: 2em;margin-left:100px">
+            <div class="postcontent" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
                 <div class="postimg">
                 </div>
                 <h2 class="date">【日付】{{$post->date}}</h2>
@@ -84,6 +85,7 @@
             </div> 
         @endforeach
         </div>
+      </div>
         
         <style>
             table {

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <title>Blog</title>
         </x-slot>
-        <h1 class="title">編集画面</h1>
+        <h1 class="title_font">編集画面</h1>
         <div class="content">
             <form action="/posts/{{ $post->id }}" method="POST">
                 @csrf
