@@ -9,16 +9,17 @@
         <link href="/css/layout.css" rel="stylesheet">
     </x-slot>
     <div class="background_img">
-        <h2 class="title_font" style="margin:0px 150px 10px;font-size:30px;font-weight: bold;color:white;">投稿一覧画面</h2>
+      
+        <h2 class="title_font" style="margin:0px 150px 10px;font-size:40px;font-weight: bold;color:white;font-family: "M PLUS Rounded 1c";">投稿一覧画面</h2>
        <div class="container">
         @foreach($posts as $post)
-            <div class="postcontent" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+            <div class="index_box" >
                 <div class="postimg">
                 </div>
-                <h2 class="date">【日付】{{$post->date}}</h2>
-                <p class="time">【トレーニング時間】{{$post->time->time}}分</p>
-                <p class="title" ><a href="/posts/{{ $post->id }}">【鍛えた場所】{{$post->title}}</a></p>
-                <p>【コメント】{{$post->body}}</p><br>
+                <h2 class="date" style="font-size:20px;font-weight:bold;margin-top:5px;">【日付】   {{$post->date}}</h2>
+                <p class="time" style="font-weight:bold;margin-top:5px;">【トレーニング時間】   {{$post->time->time}}分</p>
+                <p class="title" style="font-weight:bold;margin-top:5px;" ><a href="/posts/{{ $post->id }}">【鍛えた場所】   {{$post->title}}</a></p>
+                <p style="font-weight:bold;margin-top:5px;">【コメント】   {{$post->body}}</p><br>
                 <table>
             <tr class="header">
               <th class="item1">種目 </th>
@@ -70,7 +71,7 @@
             </tr>
             </table>
                 
-                <div class="user">
+                <div class="user" style="font-size:15pxfont-weight:bold;margin-top:5px;">
                 <a href="/myPosts" >投稿者：{{ $post->user->name }}</a>
                 </div>
                  @if(Auth::check() && $post->user_id == Auth::user()->id)
@@ -78,7 +79,7 @@
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="button" onclick="deletePost({{ $post->id }})" >削除</button> 
+                    <button class="button2" type="button" onclick="deletePost({{ $post->id }})" >削除</button> 
                     </form>
                     </div>
                 @endif

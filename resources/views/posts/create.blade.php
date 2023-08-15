@@ -8,7 +8,7 @@
     </x-slot>
     <div class="background_img">
         <h1></h1>
-        <h2 class="title_font" style="margin:0px 150px 10px;font-size:30px;font-weight: bold;color:white;">投稿作成</h2>
+        <h2 class="title_font" style="margin:0px 150px 10px;font-size:40px;font-weight: bold;color:white;">投稿作成</h2>
         <form action="/posts" method="POST" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
             @csrf
             <div>
@@ -95,7 +95,7 @@
             </tr>
             </table>
             </div>
-            <input type="submit" value="保存" style="margin-top:10px;display: inline-block;color: #fff;font-weight: bold;background-color: #333;text-align: center;padding: 8px 15px;text-decoration: none;border-radius: 5px;cursor: pointer;box-shadow: 0 0 0 #bbb;background-color: 333;transition: .3s;"/>
+            <input type="submit" value="保存" class="button1" />
         </form>
         <div style="margin-top:100px;">
           <br>

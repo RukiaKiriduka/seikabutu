@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
 .aaa{
     font-size: 50px;
@@ -12,4 +12,124 @@
 
 .background_img{
     background-image: url(bg-body.jpg);
+}
+
+.button1{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    max-width: 240px;
+    padding: 10px 25px;
+    color: #543618;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #eeee;
+    border-radius: 50px;
+    border: 0.2rem solid #543618;
+    box-shadow: 0.2rem 0.2rem 0px 0.1rem #cccccc;
+}
+.button1:hover {
+	transform: translate3d(0.2rem, 0.2rem, 0);
+  box-shadow: none;
+  opacity: 1;
+  transition: all 0.2s;
+}
+.button1:after{
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #543618;
+    border-right: 3px solid #543618;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    border-radius: 1px;
+    transition: 0.3s ease-in-out;
+}
+
+.button2{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    max-width: 150px;
+    padding: 10px 25px;
+    color: #543618;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #eeee;
+    border-radius: 50px;
+    border: 0.2rem solid #543618;
+    box-shadow: 0.2rem 0.2rem 0px 0.1rem #cccccc;
+}
+.button2:hover {
+	transform: translate3d(0.2rem, 0.2rem, 0);
+  box-shadow: none;
+  opacity: 1;
+  transition: all 0.2s;
+}
+.button2:after{
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #543618;
+    border-right: 3px solid #543618;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    border-radius: 1px;
+    transition: 0.3s ease-in-out;
+}
+
+.button3{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    max-width: 90px;
+    padding: 10px 5px;
+    color: #543618;
+    transition: 0.3s ease-in-out;
+    font-weight: 400;
+    background: #eeee;
+    border-radius: 30px;
+    border: 0.2rem solid #543618;
+    box-shadow: 0.2rem 0.2rem 0px 0.1rem #cccccc;
+}
+.button3:hover {
+	transform: translate3d(0.2rem, 0.2rem, 0);
+  box-shadow: none;
+  opacity: 1;
+  transition: all 0.2s;
+}
+.button3:after{
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #543618;
+    border-right: 3px solid #543618;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    border-radius: 1px;
+    transition: 0.3s ease-in-out;
+}
+.index_box{
+    display: inline-block;
+    background-color: #fdfbf8;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin:30px 30px 30px 100px;
+    cursor: pointer;
+cursor: hand;
+
+}
+.index_box:hover {
+    transition: .4s;
+    opacity: .6;
 }

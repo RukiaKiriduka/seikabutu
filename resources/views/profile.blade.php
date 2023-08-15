@@ -37,14 +37,15 @@
         </x-slot>
         <div class="background_img">
         <div class="flex-container">
+            <div style="color:#fdfbf8;">
             <div class="content-box">
-                <h2 style="margin:50px 0 10px;font-size:30px;font-weight: bold;color:white;">プロフィール</h2>
-                <h2 style="margin:30px 0 10px;font-size:20px;font-weight: bold;color:white;">ユーザーネーム：{{ $user->name }}</h2>
+                <h2 style="margin:50px 0 10px;font-size:40px;font-weight: bold;color:white;font-family: "M PLUS Rounded 1c";">プロフィール</h2>
+                <h2 style="margin:30px 0 10px;font-size:30px;font-weight: bold;color:white;font-family: "M PLUS Rounded 1c";">ユーザーネーム：{{ $user->name }}</h2>
             <form action="/myPosts" method="POST" enctype="multipart/form-data">
             <div class="image">
                 <input type="file" name="image">
             </div>
-            <input type="submit" value="保存" style="margin-top:10px;display: inline-block;color: #fff;font-weight: bold;background-color: #333;text-align: center;padding: 8px 15px;text-decoration: none;border-radius: 5px;">
+            <input class="button1" type="submit" value="保存" >
             </form>
             <div>
                 <img src="{{ $user->image_url }}" alt="画像が読み込めません。"/>
@@ -52,10 +53,11 @@
                 <form action="/myPosts" method="POST" style="margin:30px 0 10px">
                     @csrf
                     @method('PUT')
-                    <h2 style="font-size:15px;font-weight: bold;">自己紹介</h2>
-                    <textarea name="user_introduction" rows="4" cols="50" style="border-radius: 5px;padding: 10px;border: 1px solid #ccc;">{{ old('user_introduction', $user->content) }}</textarea>
-                    <input type="submit" value="保存" style="margin-top:10px;display: inline-block;color: #fff;font-weight: bold;background-color: #333;text-align: center;padding: 8px 15px;text-decoration: none;border-radius: 5px;">
+                    <h2 style="font-size:20px;font-weight: bold;font-family: "M PLUS Rounded 1c";">自己紹介</h2>
+                    <textarea name="user_introduction" rows="4" cols="50" style="color:black;border-radius: 5px;padding: 10px;border: 1px solid #ccc;">{{ old('user_introduction', $user->content) }}</textarea>
+                    <input  class="button1" type="submit" value="保存" >
                 </form>
+            </div>
             </div>
             <div id='calendar'style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;height:200%;"><br></div>
         </div>
