@@ -68,8 +68,9 @@ class ProfileController extends Controller
     }
     
     public function store(Request $request){
+        
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        $image_url->save();
+        Auth::user()->fill(['image_url'=>$image_url])->save();
         return redirect()->back();
     }
     

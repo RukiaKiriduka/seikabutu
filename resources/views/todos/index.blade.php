@@ -46,7 +46,7 @@
                 <div class="row">
                     {{ Form::text('newTodo', null, ['class' => 'form-control col-8 mr-5']) }}
                     {{ Form::date('newDeadline', null, ['class' => 'mr-5']) }}
-                    {{ Form::submit('新規追加', ['class' => 'btn btn-primary']) }}
+                    {{ Form::submit('新規追加', ['class' => 'btn btn-outline-primary']) }}
                 </div>
             {!! Form::close() !!}
         </div>
@@ -71,11 +71,11 @@
                     <tr>
                         <th scope="row" class="todo">{{ $todo->todo }}</th>
                         <td>{{ $todo->deadline }}</td>
-                        <td ><a href="{{ route('todos.edit', $todo->id) }}" class="btn btn-primary">編集</a></td>
                         {!! Form::open(['route' => ['todos.destroy', $todo->id], 'method' => 'POST']) !!}
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                            <td>{{ Form::submit('削除', ['class' => 'btn btn-danger']) }}</td>
+                            <td>{{ Form::submit('達成', ['class' => 'btn btn-outline-success']) }}</td>
+                            <td>{{ Form::submit('削除', ['class' => 'btn btn-outline-danger']) }}</td>
                         {!! Form::close() !!}
                     </tr>
                 @endforeach

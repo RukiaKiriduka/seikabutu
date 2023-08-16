@@ -133,3 +133,10 @@ cursor: hand;
     transition: .4s;
     opacity: .6;
 }
+
+.hozon{
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: hand;
+}
