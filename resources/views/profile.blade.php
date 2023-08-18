@@ -39,14 +39,9 @@
         <div class="flex-container">
             <div style="color:#fdfbf8;">
             <div class="content-box">
-                <h2 style="margin:0px 0 10px;font-size:40px;font-weight: bold;color:white;font-family: "M PLUS Rounded 1c";">プロフィール</h2>
                 <h2 style="margin:30px 0 10px;font-size:30px;font-weight: bold;color:white;font-family: "M PLUS Rounded 1c";">ユーザーネーム：{{ $user->name }}</h2>
                 <div>
-                <img src="{{ $user->image_url }}" alt="画像が読み込めません。" style=" border-radius: 10%;
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border: 3px solid #999;"/>
+                <img src="{{ $user->image_url }}" alt="画像が読み込めません。" style=" border-radius: 10%;width: 270px;height: 270px; object-fit: cover; border: 3px solid #999;margin-top:30px;"/>
             </div>
             <div>
             <form action="/myPosts/images" method="POST" enctype="multipart/form-data">
@@ -61,17 +56,47 @@
                 <form action="/myPosts" method="POST" style="margin:30px 0 10px">
                     @csrf
                     @method('PUT')
-                    <h2 style="font-size:20px;font-weight: bold;font-family: "M PLUS Rounded 1c";">自己紹介</h2>
+                    <h2 style="font-size:20px;font-weight: bold;font-family: "M PLUS Rounded 1c";">自己紹介(好きな筋肉)</h2>
                     <textarea name="user_introduction" rows="4" cols="50" style="color:black;border-radius: 5px;padding: 10px;border: 1px solid #ccc;">{{ old('user_introduction', $user->content) }}</textarea>
                     <input type="submit" value="保存" class="hozon">
                 </form>
             </div>
             </div>
-            <div id='calendar'style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;height:200%;"><br></div>
+            <div id='calendar'style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;height:200%;width:40%;"><br></div>
         </div>
-        <div style="margin-top:300px;">
+        <div style="margin-top:50px;">
             <br>
         </div>
+        </div>
+        
+        
+        
+        
+        
+       <div class="container">
+        <h2 style="font-weight:bold;font-size:30px;color:white;margin-left:100px;">自分の投稿</h2>
+        @foreach($posts as $post)
+            <div class="index_box" >
+                <div class="postimg">
+                </div>
+                <a href="/posts/{{ $post->id }}"><h2 class="date" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【日付】   {{$post->date}}</h2>
+                <p class="time" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【トレーニング時間】   {{$post->time->time}}分</p>
+                <p class="title" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;" >【鍛えた場所】   {{$post->title}}</p>
+                </a>
+                <div class="user" style="font-size:15pxfont-weight:bold;margin-top:5px;">
+                <a href="/myPosts" >投稿者：{{ $post->user->name}}</a>
+                </div>
+                 @if(Auth::check() && $post->user_id == Auth::user()->id)
+                    <div class="delete">
+                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="button2" type="button" onclick="deletePost({{ $post->id }})" >削除</button> 
+                    </form>
+                    </div>
+                @endif
+            </div> 
+        @endforeach
         </div>
         
         <script>

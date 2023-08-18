@@ -7,14 +7,43 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="/css/layout.css" rel="stylesheet">
+        
+           <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/lib/moment.min.js'></script>
+            <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/lib/jquery.min.js'></script>
+            <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/fullcalendar.min.js'></script>
+            <!-- Styles -->　
+            <link href='https://fullcalendar.io/js/fullcalendar-3.1.0/fullcalendar.min.css' rel='stylesheet' />
+            <style>
+                .flex-container {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 5%;
+                }
+                .content-box {
+                    width: 60%;
+                    word-wrap: break-word;
+                }
+                #calendar {
+                    width: 30%; 
+                    height: 150px;
+                    margin-left: 5%;
+                }
+                .post-image {
+                    width: 100%; 
+                    max-width: 300px; 
+                    height: auto;
+                }
+            </style>
     </x-slot>
     <div class="background_img">
   
       
         <h2 class="title_font" style="margin:0px 150px 10px;font-size:40px;font-weight: bold;color:white;font-family: "M PLUS Rounded 1c";"></h2>
+       <div style="display:flex;">
        <div class="container">
         @foreach($posts as $post)
-            <div  style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+        @if( ( $post->user_id ) === ( Auth::user()->id ) )
+            <div  style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 0px 30px 100px;">
                 <div class="postimg">
                 </div>
                 <a href="/posts/{{ $post->id }}">
@@ -77,19 +106,18 @@
                 <div class="user" style="font-size:15pxfont-weight:bold;margin-top:5px;">
                 <a href="/myPosts" >投稿者：{{ $post->user->name}}</a>
                 </div>
-                  @if(Auth::check() && $post->user_id == Auth::user()->id)
-                    <div class="delete">
-                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="button2" type="button" onclick="deletePost({{ $post->id }})" >削除</button> 
-                    </form>
-                    </div>
-                @endif
+                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                 @csrf
+                 @method('DELETE')
+                <button type="button" onclick="deletePost({{ $post->id }})" class="button1">削除</button> 
+                </form>
             </div> 
+        @endif
         @endforeach
         </div>
-      </div>
+
+        <div id='calendar'style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 30px;height:200%;width:50%;"><br></div>
+        </div>
         
         <style>
             table {
@@ -125,5 +153,27 @@
         }
     }
 </script>
+<script>
+
+            $(document).ready(function() {
+                var events = {!! json_encode($posts->map(function ($post) {
+                    return [
+                    
+                        'title' => $post->title,
+                        'start' => $post->date,
+                    ];
+                })) !!};
+
+                $('#calendar').fullCalendar({
+                    events: events,
+                    eventClick: function(event) {
+                        if (event.url) {
+                            window.location.href = event.url;
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
     </x-app-layout>
 </html>

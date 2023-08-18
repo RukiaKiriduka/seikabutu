@@ -11,7 +11,7 @@
         <link href="/css/layout.css" rel="stylesheet">
     </x-slot>
     <div class="background_img">
-        <h1 class="title_font" style="margin:0px 150px 10px;font-size:30px;font-weight: bold;color:white;">詳細画面</h1>
+        <h1 class="title_font" style="margin:0px 150px 10px;font-size:30px;font-weight: bold;color:white;"></h1>
         <div class="postcontent" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
                 <div class="postimg">
                 </div>
@@ -73,17 +73,16 @@
                 <div class="user">
                 <a href="/myPosts" >投稿者：{{ $post->user->name }}</a>
                 </div>
-                 @if(Auth::check() && $post->user_id == Auth::user()->id)
+                @if(Auth::check() && $post->user_id == Auth::user()->id)
                     <div class="delete">
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="button" onclick="deletePost({{ $post->id }})" >削除</button> 
+                    <button class="button2" type="button" onclick="deletePost({{ $post->id }})" >削除</button> 
                     </form>
                     </div>
                 @endif
-                            <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
-            <a href="/">戻る</a>
+            <div class="button1" style="width:50%;"><a href="/">戻る</a></div>
             </div> 
             <div style="margin-top:200px;">
               <br>

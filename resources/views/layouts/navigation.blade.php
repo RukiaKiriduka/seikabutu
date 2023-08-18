@@ -5,24 +5,25 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    <a href="{{ route('myPost.index') }}">
+                        <!--<x-application-logo class="block h-9 w-auto fill-current text-gray-800" />-->
+                        <img src="{{asset('img/images.png')}}" width="50" height="50">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('myPost.index')" :active="request()->routeIs('myPost.index')">
                         {{ __('プロフィール') }}
                     </x-nav-link>
                      <x-nav-link :href="route('todos.index')" :active="request()->routeIs('todo.index')">
                         {{ __('To Do リスト') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('myPost.myindex')" :active="request()->routeIs('myPost.myindex')">
+                        {{ __('自分の投稿') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
-                        {{ __('投稿一覧') }}
+                        {{ __('みんなの投稿') }}
                     </x-nav-link>
                     <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
                         {{ __('投稿作成') }}

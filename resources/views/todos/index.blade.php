@@ -8,111 +8,59 @@
     <title>Todoリスト</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="/css/layout.css" rel="stylesheet">
-    <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/lib/moment.min.js'></script>
-            <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/lib/jquery.min.js'></script>
-            <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/fullcalendar.min.js'></script>
-            <!-- Styles -->　
-            <link href='https://fullcalendar.io/js/fullcalendar-3.1.0/fullcalendar.min.css' rel='stylesheet' />
-            <style>
-                .flex-container {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 0 5%;
-                }
-                .content-box {
-                    width: 60%;
-                    word-wrap: break-word;
-                }
-                #calendar {
-                    width: 30%; 
-                    height: 150px;
-                    margin-left: 5%;
-                }
-                .post-image {
-                    width: 100%; 
-                    max-width: 300px; 
-                    height: auto;
-                }
-    </style>
-</x-slot>
-<div class="background_img">
-     <div class="container mt-3">
-        <h1 style="margin-top:0;color:white;">Todoリスト</h1>
-    </div>
-    <div class="container mt-3" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
-        <div class="container mb-4" >
-            {!! Form::open(['route' => 'todos.store', 'method' => 'POST']) !!}
-            {{ csrf_field() }}
-                <div class="row">
-                    {{ Form::text('newTodo', null, ['class' => 'form-control col-8 mr-5']) }}
-                    {{ Form::date('newDeadline', null, ['class' => 'mr-5']) }}
-                    {{ Form::submit('新規追加', ['class' => 'btn btn-outline-primary']) }}
-                </div>
-            {!! Form::close() !!}
+    
+    <h2></h2>
+    <form action="/todos" method="POST" style="width:500px;display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+        @csrf
+        <div>
+            <div style="font-weight:bold;">期限</div>
+            <input type="date" id="todo_date" name="todo[deadline]" required>
         </div>
-        @if ($errors->has('newTodo'))
-            <p class="alert alert-danger">{{ $errors->first('newTodo') }}</p>
-        @endif
-        @if ($errors->has('newDeadline'))
-            <p class="alert alert-danger">{{ $errors->first('newDeadline') }}</p>
-        @endif
-
-        <table class="table">
+        <div>
+            <div style="font-weight:bold;margin-top:5px;">タスク</div>
+            <textarea name="todo[todo]"  style="height:60%;width:100%;"></textarea>
+        </div>
+        <input type="submit" value="保存" class="button1" />
+    </form>
+    <div  style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+<table class="table">
             <thead>
                 <tr>
-                    <th scope="col" style="width: 60%">Todo</th>
+                    <th scope="col" style="width: 60%">タスク</th>
                     <th scope="col">期限</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach ($todos as $todo)
+                @if( ( $todo->user_id ) === ( Auth::user()->id ) )
                     <tr>
                         <th scope="row" class="todo">{{ $todo->todo }}</th>
                         <td>{{ $todo->deadline }}</td>
-                        {!! Form::open(['route' => ['todos.destroy', $todo->id], 'method' => 'POST']) !!}
+                        {!! Form::open(['route' => ['todos.delete', $todo->id], 'method' => 'POST']) !!}
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                             <td>{{ Form::submit('達成', ['class' => 'btn btn-outline-success']) }}</td>
                             <td>{{ Form::submit('削除', ['class' => 'btn btn-outline-danger']) }}</td>
                         {!! Form::close() !!}
                     </tr>
+                @endif
                 @endforeach
+               
             </tbody>
         </table>
-        <div style="margin-top:300px;">
-            <br>
         </div>
-    </div>
-    <div id='calendar'></div>
-        </div>
-        
-    </div>
-        
-        <script>
-            $(document).ready(function() {
-                var events = {!! json_encode($todos->map(function ($todo) {
-                    return [
-                        'title' => $todo->text,
-                        'start' => $todo->date,
-                    ];
-                })) !!};
+<script>
+    function deletePost(id) {
+        'use strict'
 
-                $('#calendar').fullCalendar({
-                    events: events,
-                    eventClick: function(event) {
-                        if (event.url) {
-                            window.location.href = event.url;
-                            return false;
-                        }
-                    }
-                });
-            });
-        </script>
-
-    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-    {!! Toastr::message() !!}
-    </x-app-layout>
+        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+            document.getElementById(`form_${id}`).submit();
+        }
+    }
+</script>
+    
+</x-app-layout>
 </html>

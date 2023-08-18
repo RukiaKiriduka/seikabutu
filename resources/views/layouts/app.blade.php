@@ -18,7 +18,7 @@
     
     <body class="font-sans antialiased">
         <div class="background_img">
-        <div class="background_img">
+        <div class="min-h-screen ">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -32,8 +32,12 @@
 
             <!-- Page Content -->
             <main>
+            <div class="background_img">
+  
                 {{ $slot }}
+            </div>
             </main>
+            
         </div>
         </div>
     </body>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todo;
-use Brian2694\Toastr\Facades\Toastr;
 
 class TodoController extends Controller
 {
@@ -13,13 +12,10 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Todo $todo)
     {
-         $todos = Todo::orderByRaw('`deadline` IS NULL ASC')->orderBy('deadline')->get();
-
-        return view('todos.index', [
-            'todos' => $todos,
-        ]);
+        
+        return view('todos.index')->with(['todos' => $todo->getPaginateByLimit()]);
         
     }
 
@@ -39,24 +35,22 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Todo $todo, Request $request)
     {
-        $request->validate([
-            'newTodo'     => 'required|max:100',
-            'newDeadline' => 'nullable|after:"now"', 
-            ]);
-            
-         Todo::create([
-            'todo'     => $request->newTodo,
-            'deadline' => $request->newDeadline,
-        ]);
         
+        $input = $request['todo'];
+        $user = $request->user();
+        $input += ['user_id' => $user->id]; 
+        $todo = new Todo();
+        $todo->fill($input)->save();
+        //return redirect('/todos' . $todo->id);
+        return redirect()->back();
         
         
         // フラッシュメッセージ
-        Toastr::success('新しいタスクが追加されました！');
+        //Toastr::success('新しいタスクが追加されました！');
 
-        return redirect()->route('todos.index');
+       // return redirect()->route('todos.index');
     }
 
     /**
@@ -115,14 +109,12 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todo $todo)
-    {
-
-        $todo->delete();
-        
-        // フラッシュメッセージ
-        Toastr::success('タスクが削除されました！');
-
-        return redirect()->route('todos.index');
-    }
+    /*public function destroy(Todo $todo)
+    */
+    
+    public function delete(Todo $todo)
+{
+    $todo->delete();
+    return redirect()->back();
+}
 }

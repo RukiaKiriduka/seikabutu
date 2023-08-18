@@ -67,6 +67,16 @@ class ProfileController extends Controller
         return view('profile')->with(['posts' => $posts, 'user' => $user]);
     }
     
+    public function myindex(Request $request)
+    {
+        $user = $request->user();
+        $posts = Post::where('user_id', $user->id)->get();
+        return view('myindex')->with(['posts' => $posts, 'user' => $user]);
+    }
+    
+    
+
+    
     public function store(Request $request){
         
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();

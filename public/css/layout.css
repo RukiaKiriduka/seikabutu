@@ -118,6 +118,40 @@
     border-radius: 1px;
     transition: 0.3s ease-in-out;
 }
+
+.button4{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    max-width: 240px;
+    padding: 10px 25px;
+    color: green;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #eeee;
+    border-radius: 50px;
+    border: 0.2rem solid green;
+    box-shadow: 0.2rem 0.2rem 0px 0.1rem #cccccc;
+}
+
+.button5{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    max-width: 240px;
+    padding: 10px 25px;
+    color: red;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #eeee;
+    border-radius: 50px;
+    border: 0.2rem solid red;
+    box-shadow: 0.2rem 0.2rem 0px 0.1rem #cccccc;
+}
+
+
 .index_box{
     display: inline-block;
     background-color: #fdfbf8;

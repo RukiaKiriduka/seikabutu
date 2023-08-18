@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('todo');
             $table->date('deadline')->nullable();
             $table->timestamps();
+            $table->foreignId('user_id')->constrained(); 
         });
     }
 

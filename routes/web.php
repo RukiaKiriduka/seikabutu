@@ -20,6 +20,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/myPosts', [ProfileController::class, 'index'])->name('myPost.index')->middleware("auth");
+Route::get('/myPosts/myindex', [ProfileController::class, 'myindex'])->name('myPost.myindex')->middleware("auth");
+
 Route::put('/myPosts/images', [ProfileController::class, 'store'])->name('profile.store');
 Route::put('/myPosts', [ProfileController::class, 'introduction'])->name('profile.introduction');
 Route::get('/myPosts/{date}', [ProfileController::class, 'postByDate'])->name('profile.postByDate');
@@ -39,7 +41,7 @@ Route::controller(TodoController::class)->middleware(['auth'])->group(function()
     Route::get('/todos', 'index')->name('todos.index');
     Route::post('/todos', 'store')->name('todos.store');
     Route::put('/todos/{todo}', 'update')->name('todos.update');
-    Route::delete('/todos/{todo}', 'destroy')->name('todos.destroy');
+    Route::delete('/todos/{todo}', 'delete')->name('todos.delete');
     Route::get('/todos/{todo}/edit', 'edit')->name('todos.edit');
 
 });

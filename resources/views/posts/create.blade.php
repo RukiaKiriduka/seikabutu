@@ -8,7 +8,7 @@
     </x-slot>
     <div class="background_img">
         <h1></h1>
-        <h2 class="title_font" style="margin:0px 150px 10px;font-size:40px;font-weight: bold;color:white;">投稿作成</h2>
+        <h2 class="title_font" style="margin:0px 150px 10px;font-size:40px;font-weight: bold;color:white;"></h2>
         <form action="/posts" method="POST" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
             @csrf
             <div>
@@ -16,7 +16,7 @@
                 <label for="post_date" style="font-weight: bold;">日付</label>
             </div>
             <div>
-                <input type="date" id="post_date" name="post[date]" required  style="border-radius: 5px;padding: 10px;border: 1px solid #ccc;">
+                <input type="date" id="post_date" name="post[date]" required  style="margin-top:10px;Sborder-radius: 5px;padding: 10px;border: 1px solid #ccc;">
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <div class="time">
