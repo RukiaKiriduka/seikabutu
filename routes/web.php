@@ -19,8 +19,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/myPosts', [ProfileController::class, 'index'])->name('myPost.index')->middleware("auth");
+
 Route::get('/myPosts/myindex', [ProfileController::class, 'myindex'])->name('myPost.myindex')->middleware("auth");
+Route::get('/myPosts/{user}', [ProfileController::class, 'index'])->name('myPost.index')->middleware("auth");
 
 Route::put('/myPosts/images', [ProfileController::class, 'store'])->name('profile.store');
 Route::put('/myPosts', [ProfileController::class, 'introduction'])->name('profile.introduction');

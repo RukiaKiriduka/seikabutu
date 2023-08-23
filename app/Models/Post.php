@@ -19,7 +19,7 @@ class Post extends Model
         'E1','E2','E3','E4','E5','E6',
     ];
 
-    public function getPaginateByLimit(int $limit_count = 10)
+    public function getPaginateByLimit(int $limit_count = 100)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける
         //return $this::with('time')->orderBy('updated_at', 'DESC')->paginate($limit_count);

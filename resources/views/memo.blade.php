@@ -233,3 +233,49 @@
         $todo = new Todo();
         $todo->fill($input)->save();
         return redirect('/' . $todo->id);
+        
+        
+        
+        @if(Auth::check() && $post->user_id == Auth::user()->id)
+                    <div class="delete">
+                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="button2" type="button" onclick="deletePost({{ $post->id }})" >削除</button> 
+                    </form>
+                    </div>
+                @endif
+                
+                
+                
+                    
+     <div>
+            @foreach ($todos as $todo)
+            <div style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+            <div class='todo'>
+                <h2 class='deadline' style="font-size:20px;">期限：{{ $todo->deadline }}</h2>
+                <p class='todoo' style="font-size:20px;">タスク：{{ $todo->todo }}</p>
+                <div style="display:flex;">
+                <form action="/todos/{{ $todo->id }}" id="form_{{ $todo->id }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="button" onclick="deletePost({{ $todo->id }})" class="button4">達成</button> 
+                </form>
+                
+                <form action="/todos/{{ $todo->id }}" id="form_{{ $todo->id }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="button" onclick="deletePost({{ $todo->id }})" class="button5" style="margin-left:100px;">削除</button> 
+                </form>
+                </div>
+            </div>
+            </div>
+            @endforeach
+        </div>
+        
+        
+        <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                 @csrf
+                 @method('DELETE')
+                <button type="button" onclick="deletePost({{ $post->id }})" class="button1">削除</button> 
+                </form>

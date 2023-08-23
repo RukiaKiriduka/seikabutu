@@ -57,4 +57,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Todo::class);
     }
+    
+     public function getPaginateByLimit(int $limit_count = 100)
+    {
+        // updated_atで降順に並べたあと、limitで件数制限をかける
+        //return $this::with('time')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
 }

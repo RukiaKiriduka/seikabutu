@@ -75,7 +75,7 @@
             </table>
               
                 <div class="user" style="font-size:15pxfont-weight:bold;margin-top:5px;">
-                <a href="/myPosts" >投稿者：{{ $post->user->name}}</a>
+                <a href="/myPosts/{{$post->user->id}}" >投稿者：{{ $post->user->name}}</a>
                 </div>
                   @if(Auth::check() && $post->user_id == Auth::user()->id)
                     <div class="delete">

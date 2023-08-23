@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Post;
+use App\Models\User;
+
 use Cloudinary;
 
 class ProfileController extends Controller
@@ -60,9 +62,9 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
     
-     public function index(Request $request)
+     public function index(Request $request, User $user)
     {
-        $user = $request->user();
+        
         $posts = Post::where('user_id', $user->id)->get();
         return view('profile')->with(['posts' => $posts, 'user' => $user]);
     }
