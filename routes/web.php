@@ -22,7 +22,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/myPosts/myindex', [ProfileController::class, 'myindex'])->name('myPost.myindex')->middleware("auth");
 Route::get('/myPosts/{user}', [ProfileController::class, 'index'])->name('myPost.index')->middleware("auth");
-
 Route::put('/myPosts/images', [ProfileController::class, 'store'])->name('profile.store');
 Route::put('/myPosts', [ProfileController::class, 'introduction'])->name('profile.introduction');
 Route::get('/myPosts/{date}', [ProfileController::class, 'postByDate'])->name('profile.postByDate');

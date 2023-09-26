@@ -10,7 +10,7 @@
     <link href="/css/layout.css" rel="stylesheet">
     
     <h2></h2>
-    <form action="/todos" method="POST" style="width:500px;display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+    <form action="/todos" method="POST" style="width:500px;display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
         @csrf
         <div>
             <div style="font-weight:bold;">期限</div>
@@ -22,7 +22,7 @@
         </div>
         <input type="submit" value="保存" class="button1" />
     </form>
-    <div  style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+    <div  style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
 <table class="table">
             <thead>
                 <tr>

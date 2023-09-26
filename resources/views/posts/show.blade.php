@@ -82,7 +82,7 @@
                     </form>
                     </div>
                 @endif
-            <div class="button1" style="width:50%;"><a href="/">戻る</a></div>
+            <a class="button1" style="text-decoration:none;" href="/">戻る</a>
             </div> 
             <div style="margin-top:200px;">
               <br>

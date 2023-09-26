@@ -39,12 +39,12 @@
         <div class="flex-container">
             <div style="color:#fdfbf8;">
             <div class="content-box">
-                <h2 style="margin:30px 0 10px;font-size:30px;font-weight: bold;color:white;font-family: "M PLUS Rounded 1c";">ユーザーネーム：{{ $user->name }}</h2>
+                
                 <div>
-                <img src="{{ $user->image_url }}" alt="画像が読み込めません。" style=" border-radius: 10%;width: 270px;height: 270px; object-fit: cover; border: 3px solid #999;margin-top:30px;"/>
-            </div>
-            <div>
-            <form action="/myPosts/images" method="POST" enctype="multipart/form-data">
+                <img src="{{ $user->image_url }}" alt="画像が読み込めません。" style=" border-radius: 50%;width: 150px;height: 150px; object-fit: cover; border: 3px solid #716040;margin-top:30px;"/>
+             
+                </div>
+                 <form action="/myPosts/images" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
             <label class="image">
@@ -52,17 +52,26 @@
             </label>
             <input type="submit" value="保存" class="hozon">
             </form>
+            
+               <h2 style="margin:30px 0 10px;font-size:30px;font-weight: bold; color:#8c7851;font-family: "M PLUS Rounded 1c";">name：{{ $user->name }}</h2>
+            <div>
+                
+          
+          
             </div>
                 <form action="/myPosts" method="POST" style="margin:30px 0 10px">
                     @csrf
                     @method('PUT')
-                    <h2 style="font-size:20px;font-weight: bold;font-family: "M PLUS Rounded 1c";">自己紹介(好きな筋肉)</h2>
+                    <h2 style=" bold; color:#8c7851; font-size:20px;font-weight: bold;font-family: "M PLUS Rounded 1c";">自己紹介(好きな筋肉)</h2>
                     <textarea name="user_introduction" rows="4" cols="50" style="color:black;border-radius: 5px;padding: 10px;border: 1px solid #ccc;">{{ old('user_introduction', $user->content) }}</textarea>
                     <input type="submit" value="保存" class="hozon">
                 </form>
+                <div><a >プロフィール編集</a></div>
             </div>
             </div>
-            <div id='calendar'style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;height:200%;width:40%;"><br></div>
+        
+            
+            <div id='calendar'style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;height:200%;width:40%;"><br></div>
         </div>
         <div style="margin-top:50px;">
             <br>
@@ -74,7 +83,7 @@
         
         
        <div class="container">
-        <h2 style="font-weight:bold;font-size:30px;color:white;margin-left:100px;">自分の投稿</h2>
+        <h2 style="font-weight:bold;font-size:30px;bold; color:#8c7851;margin-left:100px;">自分の投稿</h2>
         @foreach($posts as $post)
             <div class="index_box" >
                 <div class="postimg">

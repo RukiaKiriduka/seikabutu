@@ -18,7 +18,8 @@
     
     <body class="font-sans antialiased">
         <div class="background_img">
-        <div class="min-h-screen ">
+            <div class="min-h-screen ">
+        <div class="background_img">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

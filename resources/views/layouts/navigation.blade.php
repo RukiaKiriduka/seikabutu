@@ -1,5 +1,9 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+
+
+<nav x-data="{ open: false }" class="bg-white  border-gray-100">
+    <link href="/css/layout.css" rel="stylesheet">
     <!-- Primary Navigation Menu -->
+    <div class="nav_img">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
@@ -7,25 +11,25 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('myPost.index',['user'=>Auth::id()]) }}">
                         <!--<x-application-logo class="block h-9 w-auto fill-current text-gray-800" />-->
-                        <img src="{{asset('img/images.png')}}" width="50" height="50">
+                        <img class="logo_an" src="{{asset('img/images.png')}}" width="50" height="50">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('myPost.index',['user'=>Auth::id()])" :active="request()->routeIs('myPost.index')">
+                    <x-nav-link :href="route('myPost.index',['user'=>Auth::id()])" :active="request()->routeIs('myPost.index')" class="font_dec">
                         {{ __('プロフィール') }}
                     </x-nav-link>
-                     <x-nav-link :href="route('todos.index')" :active="request()->routeIs('todo.index')">
+                     <x-nav-link :href="route('todos.index')" :active="request()->routeIs('todo.index')" class="font_dec">
                         {{ __('To Do リスト') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('myPost.myindex')" :active="request()->routeIs('myPost.myindex')">
+                    <x-nav-link :href="route('myPost.myindex')" :active="request()->routeIs('myPost.myindex')" class="font_dec">
                         {{ __('自分の投稿') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
+                    <x-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')" class="font_dec">
                         {{ __('みんなの投稿') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
+                    <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')" class="font_dec">
                         {{ __('投稿作成') }}
                     </x-nav-link>
                 </div>
@@ -109,5 +113,6 @@
                 </form>
             </div>
         </div>
+    </div>
     </div>
 </nav>
