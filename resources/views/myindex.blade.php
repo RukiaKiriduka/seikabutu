@@ -39,7 +39,7 @@
   
       
         <h2 class="title_font" style="margin:0px 150px 10px;font-size:40px;font-weight: bold;color:white;font-family: "M PLUS Rounded 1c";"></h2>
-        <div id='calendar'style="float:right;display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 30px;height:200%;width:35%;"><br></div>
+        <div id='calendar'style="float:right;display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 30px;height:200%;width:35%;" class="container"><br></div>
         </div>
        <div style="display:flex;">
        <div class="container">

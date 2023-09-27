@@ -71,7 +71,7 @@
             </div>
         
             
-            <div id='calendar'style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;height:200%;width:40%;"><br></div>
+            <div id='calendar'style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;height:200%;width:40%;" class="container"><br></div>
         </div>
         <div style="margin-top:50px;">
             <br>

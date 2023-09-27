@@ -208,8 +208,39 @@ cursor: hand;
 
 
 .logo_an:hover{
-    transition: all 1s;
-    transform: scale(1.2,1.2);
+    transition: all 0.3s;
+    /*transform: scale(1.2,1.2);*/
+    border: 0.2rem solid #8c7851;
     
 
+}
+
+.container{
+    animation-name: start;
+    opacity: 0;
+    animation-delay: 0.2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.container.items{
+    align-items:center;
+    justify-content:center;
+    
+}
+
+.img_t:hover{
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+@keyframes start{
+  0%{
+    opacity: 0;
+
+  }
+
+  100%{
+    opacity: 1;
+  }
 }

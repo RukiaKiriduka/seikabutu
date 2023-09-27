@@ -9,7 +9,7 @@
     <div class="background_img">
         <h1></h1>
         <h2 class="title_font" style="margin:0px 150px 10px;font-size:40px;font-weight: bold;color:white;"></h2>
-        <form action="/posts" method="POST" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;box-shadow: 0px 0px 5px #716040;  border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+        <form action="/posts" method="POST" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;box-shadow: 0px 0px 5px #716040;  border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;" class="container">
             @csrf
             <div>
             <div>

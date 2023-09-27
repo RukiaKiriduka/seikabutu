@@ -12,13 +12,21 @@
   
       
         <h2 class="title_font" style="margin:0px 150px 10px;font-size:40px;font-weight: bold;color:white;font-family: "M PLUS Rounded 1c";"></h2>
-       <div class="container">
+       <div class="container items">
         @foreach($posts as $post)
-            <div  style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+            <div style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+              
                 <div class="postimg">
                 </div>
                 <a href="/posts/{{ $post->id }}">
-                <h2 class="date" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【日付】   {{$post->date}}</h2>
+                <div class="user" style="font-size:15pxfont-weight:bold;margin-top:5px;display:flex;">
+                <div>
+                <a href="/myPosts/{{$post->user->id}}" class="img_t"><img src="{{ $post->user->image_url }}" alt="画像が読み込めません。" style=" border-radius: 50%;width: 40px;height: 40px; object-fit: cover;margin-top:px;"/></a>
+             
+                </div>  
+                <a href="/myPosts/{{$post->user->id}}" style="margin-left:20px; margin-top:8px;">{{ $post->user->name}}</a>
+                </div>
+                <h2 class="date" style="font-size:20px;font-weight:bold;margin-top:20px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【日付】   {{$post->date}}</h2>
                 <p class="time" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【トレーニング時間】   {{$post->time->time}}分</p>
                 <p class="title" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;" >【鍛えた場所】   {{$post->title}}</p>
                 </a>
@@ -74,9 +82,7 @@
             </tr>
             </table>
               
-                <div class="user" style="font-size:15pxfont-weight:bold;margin-top:5px;">
-                <a href="/myPosts/{{$post->user->id}}" >投稿者：{{ $post->user->name}}</a>
-                </div>
+                
                   @if(Auth::check() && $post->user_id == Auth::user()->id)
                     <div class="delete">
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
