@@ -21,10 +21,10 @@
                 <a href="/posts/{{ $post->id }}">
                 <div class="user" style="font-size:15pxfont-weight:bold;margin-top:5px;display:flex;">
                 <div>
-                <a href="/myPosts/{{$post->user->id}}" class="img_t"><img src="{{ $post->user->image_url }}" alt="画像が読み込めません。" style=" border-radius: 50%;width: 40px;height: 40px; object-fit: cover;margin-top:px;"/></a>
+                <a href="/myPosts/{{$post->user->id}}" class="img_t"><img src="{{ $post->user->image_url }}" alt="画像が読み込めません。" style=" border-radius: 50%;width: 50px;height: 50px; object-fit: cover;margin-top:px;"/></a>
              
                 </div>  
-                <a href="/myPosts/{{$post->user->id}}" style="margin-left:20px; margin-top:8px;">{{ $post->user->name}}</a>
+                <a href="/myPosts/{{$post->user->id}}" style="font-size:18px;margin-left:20px; margin-top:15px;font-weight:bold;">{{ $post->user->name}}</a>
                 </div>
                 <h2 class="date" style="font-size:20px;font-weight:bold;margin-top:20px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【日付】   {{$post->date}}</h2>
                 <p class="time" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【トレーニング時間】   {{$post->time->time}}分</p>

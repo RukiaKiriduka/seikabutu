@@ -12,7 +12,8 @@
     </x-slot>
     <div class="background_img">
         <h1 class="title_font" style="margin:0px 150px 10px;font-size:30px;font-weight: bold;color:white;"></h1>
-        <div class="postcontent" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
+        <div class="container">
+        <div class="postcontent" style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px; box-shadow: 0px 0px 5px #716040 ;border-radius: 10px;box-sizing: border-box;margin:30px 30px 30px 100px;">
                 <div class="postimg">
                 </div>
                 <h2 class="date" style="margin-top:10px;font-weight: bold;">【日付】{{$post->date}}</h2>
@@ -82,10 +83,10 @@
                     </form>
                     </div>
                 @endif
-            <a class="button1" style="text-decoration:none;" href="/">戻る</a>
             </div> 
             <div style="margin-top:200px;">
               <br>
+            </div>
             </div>
             </div>
             

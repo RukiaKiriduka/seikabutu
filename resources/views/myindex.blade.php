@@ -46,10 +46,19 @@
         @foreach($posts as $post)
         @if( ( $post->user_id ) === ( Auth::user()->id ) )
             <div  style="display: inline-block;background-color: #fdfbf8;padding: 20px 40px ;box-shadow: 0px 0px 5px #716040; border-radius: 10px;box-sizing: border-box;margin:30px 0px 30px 100px;">
+               
                 <div class="postimg">
                 </div>
+                <div class="user" style="font-size:15pxfont-weight:bold;margin-top:5px;display:flex;">
+                <div>
+                <a href="/myPosts/{{$post->user->id}}" class="img_t"><img src="{{ $post->user->image_url }}" alt="画像が読み込めません。" style=" border-radius: 50%;width: 50px;height: 50px; object-fit: cover;margin-top:px;"/></a>
+             
+                </div>  
+                <a href="/myPosts/{{$post->user->id}}" style="font-size:18px;margin-left:20px; margin-top:15px;font-weight:bold;">{{ $post->user->name}}</a>
+                </div>
+                
                 <a href="/posts/{{ $post->id }}">
-                <h2 class="date" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【日付】   {{$post->date}}</h2>
+                <h2 class="date" style="font-size:20px;font-weight:bold;margin-top:15px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【日付】   {{$post->date}}</h2>
                 <p class="time" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;">【トレーニング時間】   {{$post->time->time}}分</p>
                 <p class="title" style="font-size:20px;font-weight:bold;margin-top:5px;font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;" >【鍛えた場所】   {{$post->title}}</p>
                 </a>

@@ -232,6 +232,7 @@ cursor: hand;
 .img_t:hover{
     opacity: 0.7;
     transition: all 0.3s;
+    border: 0.2rem solid #8c7851;
 }
 
 @keyframes start{

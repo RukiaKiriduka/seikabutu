@@ -63,7 +63,7 @@
                     @csrf
                     @method('PUT')
                     <h2 style=" bold; color:#8c7851; font-size:20px;font-weight: bold;font-family: "M PLUS Rounded 1c";">自己紹介(好きな筋肉)</h2>
-                    <textarea name="user_introduction" rows="4" cols="50" style="color:black;border-radius: 5px;padding: 10px;border: 1px solid #ccc;">{{ old('user_introduction', $user->content) }}</textarea>
+                    <textarea name="user_introduction" rows="4" cols="50" style="color:black;border-radius: 5px;padding: 10px;border: 2px solid #716040;">{{ old('user_introduction', $user->content) }}</textarea>
                     <input type="submit" value="保存" class="hozon">
                 </form>
                 <div><a >プロフィール編集</a></div>
