@@ -25,6 +25,7 @@ Route::get('/myPosts/{user}', [ProfileController::class, 'index'])->name('myPost
 Route::put('/myPosts/images', [ProfileController::class, 'store'])->name('profile.store');
 Route::put('/myPosts', [ProfileController::class, 'introduction'])->name('profile.introduction');
 Route::get('/myPosts/{date}', [ProfileController::class, 'postByDate'])->name('profile.postByDate');
+Route::get('/myPosts/profile', [ProfileController::class, 'create'])->name('profile.create');
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('post.index');

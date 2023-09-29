@@ -3,7 +3,7 @@
     <x-app-layout>
         <x-slot name="header">
             <meta charset="utf-8">
-            <title>Blog</title>
+            <title>プロフィール</title>
             <!-- Fonts -->
             <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
             <link href="/css/layout.css" rel="stylesheet">
@@ -66,7 +66,7 @@
                     <textarea name="user_introduction" rows="4" cols="50" style="color:black;border-radius: 5px;padding: 10px;border: 2px solid #716040;">{{ old('user_introduction', $user->content) }}</textarea>
                     <input type="submit" value="保存" class="hozon">
                 </form>
-                <div><a >プロフィール編集</a></div>
+            <a href="/myPosts/profile">プロフィール編集</a>
             </div>
             </div>
         

@@ -103,5 +103,12 @@ class ProfileController extends Controller
 
         return view('posts.showMyPost', ['posts' => $posts]);
     }
+    
+   
+    public function create()
+    {
+        return view('index');
+    }
 
 }
+
