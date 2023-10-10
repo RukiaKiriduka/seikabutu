@@ -66,7 +66,7 @@
                     <textarea name="user_introduction" rows="4" cols="50" style="color:black;border-radius: 5px;padding: 10px;border: 2px solid #716040;">{{ old('user_introduction', $user->content) }}</textarea>
                     <input type="submit" value="保存" class="hozon">
                 </form>
-            <a href="/myPosts/profile">プロフィール編集</a>
+            <!--<a href="/myPosts/profile">プロフィール編集</a>-->
             </div>
             </div>
         
@@ -83,7 +83,7 @@
         
         
        <div class="container">
-        <h2 style="font-weight:bold;font-size:30px;bold; color:#8c7851;margin-left:100px;">自分の投稿</h2>
+        <h2 style="font-weight:bold;font-size:30px;bold; color:#8c7851;margin-left:100px;">投稿</h2>
         @foreach($posts as $post)
             <div class="index_box" >
                 <div class="postimg">
